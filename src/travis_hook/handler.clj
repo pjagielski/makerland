@@ -12,7 +12,9 @@
 (def device-mapping {"pjg@touk.pl" "53ff6c065067544860381287", "bartek.zdanowski@gmail.com" "50ff76065067545641150387"})
 (def status-mapping {1 "on", 0 "off"})
 
-(def access-token "d193fc0b39482f9ed9513c139a6b0bbb7609563f")
+(def access-token (System/getProperty "access.token"))
+
+(println "Access token: " access-token)
 
 (defn send-update [email status]
   (client/post (str "https://api.spark.io/v1/devices/" (get device-mapping email) "/led")
