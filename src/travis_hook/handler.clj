@@ -4,6 +4,7 @@
             [compojure.route :as route]
             [ring.middleware.json :as middleware]
             [ring.adapter.jetty :refer (run-jetty)]
+            [ring.util.response :refer [resource-response response]]
             [clojure.data.json :as json]
             [clj-http.client :as client])
   (:gen-class))
@@ -38,6 +39,8 @@
   (GET "/zdanek/:status" [status]
        (send-update "bartek.zdanowski@gmail.com" status)
        {:body {:message "OK"}})
+
+  (GET  "/" [] (resource-response "index.html" {:root "public"}))
 
   (route/resources "/")
   (route/not-found "Not Found"))

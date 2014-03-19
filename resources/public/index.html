@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/foundation/5.0.3/css/foundation.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <style>
+        a { width: 175px; }
+    </style>
+  </head>
+  <body>
+    <div class="row">
+      <div class="large-4">
+        <div id="content" style="margin-top: 50px">
+            <div class="row">
+                <a id="zdanek_on" href="#" class="button">Zdanek ok</a>
+                <a id="zdanek_off" href="#" class="button alert">Zdanek alert</a>
+            </div>
+            <div class="row">
+                <a id="jagiel_on" href="#" class="button">Jagiel ok</a>
+                <a id="jagiel_off" href="#" class="button alert">Jagiel alert</a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+    <script lang="javascript">
+        $(document).ready(function() {
+            $('#zdanek_on').click(function() {
+                $.ajax("/zdanek/on");
+            });
+            $('#zdanek_off').click(function() {
+                $.ajax("/zdanek/off");
+            });
+            $('#jagiel_on').click(function() {
+                $.ajax("/jagiel/on");
+            });
+            $('#jagiel_off').click(function() {
+                $.ajax("/jagiel/off");
+            });
+        })
+    </script>
+</html>
