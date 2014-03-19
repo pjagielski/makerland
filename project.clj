@@ -5,7 +5,9 @@
                  [compojure "1.1.6"]
                  [ring/ring-core "1.2.0"]
                  [ring/ring-json "0.1.2"]
-                 [ring/ring-jetty-adapter "1.2.0"]]
+                 [ring/ring-jetty-adapter "1.2.0"]
+                 [org.clojure/data.json "0.2.4"]
+                 [clj-http "0.9.1"]]
 
   :plugins [[lein-ring "0.8.10"]]
   :ring {:handler travis-hook.handler/app}
