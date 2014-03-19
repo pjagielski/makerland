@@ -7,8 +7,8 @@
   (:gen-class))
 
 (defroutes app-routes
-  (POST "/" {body :body}
-        (println body)
+  (POST "/" {{payload :payload} :params}
+        (println payload)
         {:body {:message (str "Hello World")}})
 
   (GET "/messages/:name" [name] {:body {:message (str "Hello World" " " name)}})
@@ -18,7 +18,7 @@
 
 (def app
   (-> (handler/api app-routes)
-      (middleware/wrap-json-body)
+
       (middleware/wrap-json-response)))
 
 (defn -main [& args]
