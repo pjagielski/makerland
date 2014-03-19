@@ -1,0 +1,3 @@
+language: clojure
+notifications:
+  webhooks: http://95.85.23.51:3000
